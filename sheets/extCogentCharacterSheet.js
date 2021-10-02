@@ -11,7 +11,7 @@ export default class extCogentCharacterSheet extends cogentCharacterSheet {
     
     getData() {
         const data = super.getData()
-        data.data.extVocations = data.items.filter(function(item) {return item.data.type == "vocation"})
+        data.data.data.extVocations = data.items.filter(function(item) {return item.data.type == "vocation"})
         return data;
     }
 

@@ -8,7 +8,7 @@
             <tr>
                 <td colspan="3">
                     <select name="data.type">
-                        {{#select data.type}}
+                        {{#select data.data.type}}
                         {{#each config.miscItems as |name type|}}
                         <option value="{{type}}">{{localize name}}</option>
                         {{/each}}
@@ -16,8 +16,23 @@
                     </select>
                 </td>
             </tr>
-            {{#if (eq data.type "vocation")}}
+            {{#if (eq data.data.type "vocation")}}
             {{> "modules/extCogent/templates/partials/character/vocation-sheet.hbs"}}
+            {{/if}}
+            {{#if (eq data.data.type "item")}}
+            <tr>
+                <td>{{localize "cogent.amount"}}:</td>
+                <td>
+                    <span>
+                        <input name="data.count" type="number" value="{{data.data.count}}" data-dtype="Number" /> 
+                    </span>  
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <textarea name="data.description">{{data.data.description}}</textarea>
+                </td>
+            </tr>
             {{/if}}
         </table>
     </div>

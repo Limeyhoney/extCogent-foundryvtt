@@ -3,8 +3,8 @@
     "title": "Homebrew Character Sheet for Cogent.",
     "description": "Adds a homebrew character sheet for Cogent.",
     "author": "Limeyhoney",
-    "version": "0.1.0",
-    "minimumCoreVersion": "0.7.9",
+    "version": "0.2.0",
+    "minimumCoreVersion": "0.8.9",
     "esmodules": [
         "./extCogent.js"
     ],
