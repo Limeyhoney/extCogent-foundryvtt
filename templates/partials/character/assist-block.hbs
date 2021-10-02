@@ -1,0 +1,171 @@
+<section>
+    <tr>
+        <td colspan="5">&emsp;</td>
+    </tr>
+    <tr>
+        <td style="font-size:134%" colspan="5">{{localize "cogent.assistBlock.strBonus"}}</td>
+    </tr>
+    <tr>
+        <td style="font-size:134%" colspan="5">{{localize "cogent.assistBlock.refBonus"}}</td>
+    </tr>
+    <tr>
+        <td style="font-size:134%" colspan="5">{{localize "cogent.assistBlock.intBonus"}}</td>
+    </tr>
+    <tr>
+        <td style="font-size:134%" colspan="5">{{localize "extCogent.assistBlock.chaBonus"}}</td>
+    </tr>
+    <tr>
+        <td colspan="4">{{localize "cogent.assistBlock.vocations"}}</td>
+        <td><a><i class="fas fa-plus cogent-item-add" data-default="extCogent.vocation.default" data-type="misc" data-class="vocation"></i></a></td>
+        
+    </tr>
+    {{#each data.extVocations as |vocation id|}}
+    <tr>
+        <td colspan="5">
+            <table>
+                <tr>
+                    <td colspan="4" title="{{vocation.data.description}}" class="left">
+                        <div class="flex">
+                            <a class="cogent-item-edit flex" title="Edit Item" data-id="{{vocation._id}}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <div class="ext-cogent-sroll rollable" title="Roll skill Check" data-skill="{{vocation.name}}" data-value="{{vocation.data.count}}" 
+                            data-attribute="{{vocation.data.attribute}}" data-pvalue="0">{{vocation.name}}</div>
+                        </div>
+                    </td>
+                    <td>
+                        {{vocation.data.attribute}}
+                    </td>
+                    <td>
+                        <div class="flex">
+                            {{vocation.data.count}}
+                        </div>
+                    </td>
+                    <td>
+                        <a class="cogent-item-remove" title="Remove Item" data-id="{{vocation._id}}">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <i>{{localize "cogent.skillBlock.skills"}}</i>
+                    </td>
+                </tr>
+                {{#if vocation.data.skill1.value}}
+                <tr>
+                    <td class="ext-cogent-sroll rollable" title="Roll skill Check" data-skill="{{vocation.data.skill1.name}}" data-value="{{vocation.data.skill1.value}}" 
+                    data-attribute="{{vocation.data.skill1.attribute}}" data-pvalue="{{vocation.data.count}}">{{vocation.data.skill1.name}}</td>
+                    <td>{{vocation.data.skill1.attribute}}</td>
+                    <td>{{vocation.data.skill1.value}}</td>
+                    <td>&nbsp;</td>
+                    {{#if vocation.data.skill2.value}}
+                    <td class="ext-cogent-sroll rollable" title="Roll skill Check" data-skill="{{vocation.data.skill2.name}}" data-value="{{vocation.data.skill2.value}}" 
+                    data-attribute="{{vocation.data.skill2.attribute}}" data-pvalue="{{vocation.data.count}}">{{vocation.data.skill2.name}}</td>
+                    <td>{{vocation.data.skill2.attribute}}</td>
+                    <td>{{vocation.data.skill2.value}}</td>
+                    {{/if}}
+                    {{#unless vocation.data.skill2.value}}
+                    <td colspan="3"/>
+                    {{/unless}}
+                </tr>
+                {{/if}}
+                {{#if vocation.data.skill3.value}}
+                <tr>
+                    <td class="ext-cogent-sroll rollable" title="Roll skill Check" data-skill="{{vocation.data.skill3.name}}" data-value="{{vocation.data.skill3.value}}" 
+                    data-attribute="{{vocation.data.skill3.attribute}}" data-pvalue="{{vocation.data.count}}">{{vocation.data.skill3.name}}</td>
+                    <td>{{vocation.data.skill3.attribute}}</td>
+                    <td>{{vocation.data.skill3.value}}</td>
+                    <td>&nbsp;</td>
+                    {{#if vocation.data.skill4.value}}
+                    <td class="ext-cogent-sroll rollable" title="Roll skill Check" data-skill="{{vocation.data.skill4.name}}" data-value="{{vocation.data.skill4.value}}" 
+                    data-attribute="{{vocation.data.skill4.attribute}}" data-pvalue="{{vocation.data.count}}">{{vocation.data.skill4.name}}</td>
+                    <td>{{vocation.data.skill4.attribute}}</td>
+                    <td>{{vocation.data.skill4.value}}</td>
+                    {{/if}}
+                    {{#unless vocation.data.skill4.value}}
+                    <td colspan="3"/>
+                    {{/unless}}
+                </tr>
+                {{/if}}
+            </table>
+        </td>
+        
+    </tr>
+    {{/each}}
+    <tr>
+        <td colspan="3">{{localize "cogent.assistBlock.injuries"}}</td>
+        <td colspan="2">{{localize "cogent.assistBlock.penalty"}}</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" name="data.injuries.minor" value="{{data.injuries.minor}}" data-dtype="Number" min="0"/>
+        </td>
+        <td colspan="">{{localize "cogent.assistBlock.minor"}}</td>
+        <td>&emsp;&emsp;&emsp;&emsp;</td>
+        <td>
+            <input type="number" name="data.injuries.dminor" value="{{data.injuries.minor}}" data-dtype="Number" readonly="true"/>
+        </td>
+        <td>{{localize "cogent.dice"}}</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" name="data.injuries.medium" value="{{data.injuries.medium}}" data-dtype="Number" min="0"/>
+        </td>
+        <td colspan="">{{localize "cogent.assistBlock.medium"}}</td>
+        <td>&emsp;&emsp;&emsp;&emsp;</td>
+        <td>
+            <input type="number" name="data.injuries.dmedium" value="{{double data.injuries.medium}}" data-dtype="Number" readonly="true"/>
+        </td>
+        <td>{{localize "cogent.dice"}}</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" name="data.injuries.serious" value="{{data.injuries.serious}}" data-dtype="Number" min="0"/>
+        </td>
+        <td colspan="">{{localize "cogent.assistBlock.serious"}}</td>
+        <td>&emsp;&emsp;&emsp;&emsp;</td>
+        <td>
+            <input type="number" name="data.injuries.dserious" value="{{triple data.injuries.serious}}" data-dtype="Number" readonly="true"/>
+        </td>
+        <td>{{localize "cogent.dice"}}</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" name="data.injuries.fatal" value="{{data.injuries.fatal}}" data-dtype="Number" min="0"/>
+        </td>
+        <td colspan="">{{localize "cogent.assistBlock.fatal"}}</td>
+        <td>&emsp;&emsp;&emsp;&emsp;</td>
+        <td>
+            <input type="number" name="data.injuries.dfatal" value="{{quadruple data.injuries.fatal}}" data-dtype="Number" readonly="true"/>
+        </td>
+        <td>{{localize "cogent.dice"}}</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" name="data.injuries.total" value="{{sum4 data.injuries.fatal data.injuries.serious data.injuries.medium data.injuries.minor}}" data-dtype="Number" readonly="true"/>
+        </td>
+        <td colspan="">{{localize "cogent.total"}}</td>
+        <td>&emsp;&emsp;&emsp;&emsp;</td>
+        <td>
+            <input type="number" name="data.injuries.malus" value="{{data.injuries.malus}}" data-dtype="Number" readonly="true"/>
+        </td>
+        <td>{{localize "cogent.dice"}}</td>
+    </tr>
+    {{#unless (eq actor.type "monster")}}
+    <tr>
+        <td colspan="5">{{localize "cogent.assistBlock.commerce"}}</td>
+    </tr>
+    <tr>
+        <td colspan="5"><input type="number" name="data.commerce.value" value="{{data.commerce.value}}" data-dtype="Number" min="0"/></td>
+    </tr>
+    {{#if (eq actor.type "character")}}
+    <tr>
+        <td colspan="5">{{localize "cogent.assistBlock.destiny"}}</td>
+    </tr>
+    <tr>
+        <td colspan="5"><input type="number" name="data.destiny.value" value="{{data.destiny.value}}" data-dtype="Number" min="0"/></td>
+    </tr>
+    {{/if}}
+    {{/unless}}
+</section>

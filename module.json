@@ -1,0 +1,27 @@
+{
+    "name": "extCogent",
+    "title": "Homebrew Character Sheet for Cogent.",
+    "description": "Adds a homebrew character sheet for Cogent.",
+    "author": "Limeyhoney",
+    "version": "0.1.0",
+    "minimumCoreVersion": "0.7.9",
+    "esmodules": [
+        "./extCogent.js"
+    ],
+    "languages": [
+        {
+          "lang": "en",
+          "name": "English",
+          "path": "lang/en.json"
+        }
+    ],
+    "packs": [
+        {
+            "name": "hardcore-armor",
+            "label": "Hardcore Armor",
+            "system": "cogent",
+            "path": "./packs/hardcore-armor.db",
+            "entity": "Item"
+        }
+    ]
+}

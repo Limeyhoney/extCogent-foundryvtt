@@ -1,0 +1,24 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    </header>
+    <div>
+        <table style="border-spacing:15px">
+            <tr>
+                <td colspan="3">
+                    <select name="data.type">
+                        {{#select data.type}}
+                        {{#each config.miscItems as |name type|}}
+                        <option value="{{type}}">{{localize name}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </td>
+            </tr>
+            {{#if (eq data.type "vocation")}}
+            {{> "modules/extCogent/templates/partials/character/vocation-sheet.hbs"}}
+            {{/if}}
+        </table>
+    </div>
+</form>

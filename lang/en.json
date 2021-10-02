@@ -1,0 +1,34 @@
+{
+    "extCogent": {
+        "attributes": {
+            "cha": "Character"
+        },
+        "capattributes": {
+            "cha": "CHARACTER"
+        },
+        "shortattributes": {
+            "cha": "CHA"
+        },
+        "skillBlock": {
+            "character": "Character Based"
+        },
+        "assistBlock": {
+            "chaBonus": "+1 temp DP per session per charisma"
+        },
+        "skills": {
+            "logic": "Insight",
+            "authority": "Intimidation",
+            "willpower": "Willpower"
+        },
+        "vocation": {
+            "default": "New Vocation",
+            "vocation": "Vocation",
+            "skill": "Vocational Skill",
+            "attributeType": "Attribute:",
+            "points": "Points:"
+        },
+        "proficiency": {
+            "default": "New Skill"
+        }
+    }
+}
